@@ -1,0 +1,19 @@
+{
+  "name": "devtree",
+  "version": "1.0.0",
+  "description":"Proyecto con typescript y express",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts"
+  },
+  "author": "Miguel Angel Ureña Batista",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
