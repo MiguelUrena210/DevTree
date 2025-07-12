@@ -1,10 +1,13 @@
-import express from 'express'
-const app = express()
+// Arranque de proyecto
+// Dependencias
+import colors from 'colors';
+// Archivos
+import server from './server';
 
 // Preparación de ruta
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 
 // Establecimiento del servidor
-app.listen(port, () => {
-    console.log(`Servidor escuchando en el puerto ${port}`)
+server.listen(port, () => {
+    console.log(colors.cyan.italic(`Servidor escuchando en el puerto: ${port}`));
 })
