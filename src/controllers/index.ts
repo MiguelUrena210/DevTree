@@ -2,17 +2,9 @@ import { type Request, type Response } from "express";
 import slug from 'slug';
 import User from "../models/User";
 import { checkPassword, hassPassword } from "../utils/auth";
-import { validationResult } from "express-validator";
 
 export const createAccount = async (req: Request, res: Response) => {
     try {
-        // Manejar errores de la ruta
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            console.error(errors);
-            return res.status(400).json({ errors: errors.array() });
-        }
-
         const { email, password } = req.body;
 
         const userExists = await User.findOne({ email });
@@ -42,13 +34,6 @@ export const createAccount = async (req: Request, res: Response) => {
 
 export const login = async (req: Request, res: Response) => {
     try {
-        // Manejar errores de la ruta
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            console.error(errors);
-            return res.status(400).json({ errors: errors.array() });
-        }
-
         const { email, password } = req.body;
 
         // Revisar si existe el usuario
@@ -67,6 +52,6 @@ export const login = async (req: Request, res: Response) => {
 
         res.status(200).json({ message: 'Autenticación completada' })
     } catch (error) {
-
+        res.status(500).json({ message: `Error dentro del servidor: ${error}` })
     }
 } 
