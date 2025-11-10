@@ -1,7 +1,13 @@
+import { Link } from "react-router-dom";
+
 export default function RegisterView() {
   return (
-        <div className="text-6xl">
-            RegisterView
-        </div>
+        <>
+              <div>Register View</div>
+        
+              <nav>
+                <Link to="/auth/login">¿Ya tienes cuenta? Inicia sesión aquí</Link>
+              </nav>
+            </>
     )
 }
